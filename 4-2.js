@@ -1,0 +1,26 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+// 4-2 Interface 与 class
+var drawPoint = function (point) {
+    console.log({ x: point.x, y: point.y });
+};
+//以下调用传参均不报错
+drawPoint({ x: 105, y: 24 });
+drawPoint({ x: '333', y: '444' });
+drawPoint({ xc: 'sss', yy: 'www' });
+//利用接口规范传参类型
+var drawPoint2 = function (point) {
+    console.log({ x: point.x, y: point.y });
+};
+var point_1 = require("./point");
+var point = new point_1.Point(2, 3);
+point.drawPoint();
+//对象object、类class、实例instance
+//Access Modifier 访问修饰符
+var point1 = new point_1.Point(24, 50);
+//访问类中的变量应该加以限制
+// point1.x = 30
+//访问修饰符 public, private, protected
+//point1.setX(30)
+point1.X = 22;
+console.log(point1.X);
